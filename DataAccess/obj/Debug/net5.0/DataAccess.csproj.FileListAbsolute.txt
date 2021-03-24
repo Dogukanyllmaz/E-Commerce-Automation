@@ -1,0 +1,17 @@
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\bin\Debug\net5.0\Core.dll
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\bin\Debug\net5.0\Entities.dll
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\obj\Debug\net5.0\DataAccess.csprojAssemblyReference.cache
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\obj\Debug\net5.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfo.cs
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\bin\Debug\net5.0\DataAccess.deps.json
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\bin\Debug\net5.0\DataAccess.dll
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\bin\Debug\net5.0\ref\DataAccess.dll
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\bin\Debug\net5.0\DataAccess.pdb
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\bin\Debug\net5.0\Core.pdb
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\bin\Debug\net5.0\Entities.pdb
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CopyComplete
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\obj\Debug\net5.0\DataAccess.dll
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
+C:\Users\dogukan\source\repos\E-Ticaret\DataAccess\obj\Debug\net5.0\DataAccess.pdb
