@@ -7,7 +7,6 @@
 ### Table of Contents
 - [Description](#description)
 - [How To Use](#how-to-use)
-- [References](#references)
 - [License](#license)
 - [Author Info](#author-info)
 
@@ -72,10 +71,6 @@ $ dotnet restore
 <br>
 ---
 
-## References
-- [Back To The Top](#E-Commerce Automation)
-
----
 
 ## License
 
