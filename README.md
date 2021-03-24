@@ -1,6 +1,6 @@
 [![GitHub license](https://img.shields.io/github/license/Dogukanyllmaz/E-Commerce-Automation)](https://github.com/Dogukanyllmaz/E-Commerce-Automation/blob/main/LICENSEE)
 ![GitHub Repo stars](https://img.shields.io/github/stars/dogukanyllmaz/E-Commerce-Automation?color=green)
-<h1 align="center">#E-Commerce Automation</h1>
+<h1 align="center">E-Commerce Automation</h1>
 
 <p align="center">
     <img width="100%" src="./src/E-Commerce-Automation.jpg">
