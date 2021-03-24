@@ -32,7 +32,7 @@
 $ git clone https://github.com/Dogukanyllmaz/E-Commerce-Automation
 
 # Go to file
-$ cd Rent-A-Car-Project.git
+$ cd E-Commerce-Automation.git
 
 # Install dependencies
 $ dotnet restore
