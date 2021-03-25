@@ -1,1 +1,178 @@
+CREATE TABLE [dbo].[Products] (
+    [ProductId]    INT           IDENTITY (1, 1) NOT NULL,
+    [ProductName]  NVARCHAR (40) NOT NULL,
+    [SupplierId]   INT           NULL,
+    [CategoryId]   INT           NULL,
+    [UnitPrice]    MONEY         CONSTRAINT [DF_Products_UnitPrice] DEFAULT ((0)) NULL,
+    [UnitsInStock] INT           CONSTRAINT [DF_Products_UnitsInStock] DEFAULT ((0)) NULL,
+    [UnitsOnOrder] INT           CONSTRAINT [DF_Products_UnitsOnOrder] DEFAULT ((0)) NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED ([ProductId] ASC),
+    CONSTRAINT [FK_Products_Categories] FOREIGN KEY ([CategoryId]) REFERENCES [dbo].[Categories] ([CategoryId]),
+    CONSTRAINT [FK_Products_Suppliers] FOREIGN KEY ([SupplierId]) REFERENCES [dbo].[Suppliers] ([SupplierId]),
+    CONSTRAINT [CK_Products_UnitPrice] CHECK ([UnitPrice]>=(0)),
+    CONSTRAINT [CK_UnitsInStock] CHECK ([UnitsInStock]>=(0)),
+    CONSTRAINT [CK_UnitsOnOrder] CHECK ([UnitsOnOrder]>=(0))
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CategoriesProducts]
+    ON [dbo].[Products]([CategoryId] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CategoryId]
+    ON [dbo].[Products]([CategoryId] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ProductName]
+    ON [dbo].[Products]([ProductName] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [SupplierId]
+    ON [dbo].[Products]([SupplierId] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [SuppliersProducts]
+    ON [dbo].[Products]([SupplierId] ASC);
+	
+
+CREATE TABLE [dbo].[Categories] (
+    [CategoryId]   INT           IDENTITY (1, 1) NOT NULL,
+    [CategoryName] NVARCHAR (15) NOT NULL,
+    [Description]  NVARCHAR (25) NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY CLUSTERED ([CategoryId] ASC)
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CategoryName]
+    ON [dbo].[Categories]([CategoryName] ASC);
+
+
+CREATE TABLE [dbo].[Customers] (
+    [CustomerId]   INT           IDENTITY (1, 1) NOT NULL,
+    [CompanyName]  NVARCHAR (40) NULL,
+    [ContactName]  NVARCHAR (30) NULL,
+    [ContactTitle] NVARCHAR (30) NULL,
+    [Address]      NVARCHAR (60) NULL,
+    [City]         NVARCHAR (50) NULL,
+    [Region]       NVARCHAR (50) NULL,
+    [PostalCode]   INT           NULL,
+    [Country]      NVARCHAR (50) NULL,
+    [PhoneNumber]  NVARCHAR (11) NULL,
+    [UserId]       INT           NULL,
+    CONSTRAINT [PK_Customers] PRIMARY KEY CLUSTERED ([CustomerId] ASC),
+    CONSTRAINT [FK_Customers_ToTable] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([Id])
+);
+
+
+
+CREATE TABLE [dbo].[Suppliers] (
+    [SupplierId]   INT           IDENTITY (1, 1) NOT NULL,
+    [CompanyName]  NVARCHAR (40) NOT NULL,
+    [ContactName]  NVARCHAR (30) NULL,
+    [ContactTitle] NVARCHAR (30) NULL,
+    [Address]      NVARCHAR (60) NULL,
+    [City]         NVARCHAR (15) NULL,
+    [Region]       NVARCHAR (15) NULL,
+    [PostalCode]   INT           NULL,
+    [Country]      NVARCHAR (15) NULL,
+    [PhoneNumber]  NVARCHAR (24) NULL,
+    CONSTRAINT [PK_Suppliers] PRIMARY KEY CLUSTERED ([SupplierId] ASC)
+);
+
+
+
+
+CREATE TABLE [dbo].[Orders] (
+    [OrderId]        INT           IDENTITY (1, 1) NOT NULL,
+    [CustomerId]     INT           NULL,
+    [OrderDate]      DATETIME      NULL,
+    [RequiredDate]   DATETIME      NULL,
+    [ShippedDate]    DATETIME      NULL,
+    [ShipName]       NVARCHAR (40) NULL,
+    [ShipAddress]    NVARCHAR (60) NULL,
+    [ShipCity]       NVARCHAR (15) NULL,
+    [ShipRegion]     NVARCHAR (15) NULL,
+    [ShipPostalCode] INT           NULL,
+    [ShipCountry]    NVARCHAR (15) NULL,
+    CONSTRAINT [PK_Orders] PRIMARY KEY CLUSTERED ([OrderId] ASC),
+    CONSTRAINT [FK_Orders_Customers] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[Customers] ([CustomerId])
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CustomerID]
+    ON [dbo].[Orders]([CustomerId] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [CustomersOrders]
+    ON [dbo].[Orders]([CustomerId] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [OrderDate]
+    ON [dbo].[Orders]([OrderDate] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ShippedDate]
+    ON [dbo].[Orders]([ShippedDate] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [ShipPostalCode]
+    ON [dbo].[Orders]([ShipPostalCode] ASC);
+
+
+CREATE TABLE [dbo].[ProductImages] (
+    [Id]        INT            IDENTITY (1, 1) NOT NULL,
+    [ProductId] INT            NOT NULL,
+    [ImagePath] NVARCHAR (MAX) NULL,
+    [Date]      DATETIME2 (7)  NULL,
+    CONSTRAINT [PK_ProductImages] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_ProductImages_ToTable] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Products] ([ProductId])
+);
+
+
+
+CREATE TABLE [dbo].[Users] (
+    [Id]           INT             IDENTITY (1, 1) NOT NULL,
+    [FirstName]    VARCHAR (50)    NOT NULL,
+    [LastName]     VARCHAR (50)    NOT NULL,
+    [Email]        VARCHAR (50)    NOT NULL,
+    [PasswordHash] VARBINARY (500) NOT NULL,
+    [PasswordSalt] VARBINARY (500) NOT NULL,
+    [Status]       BIT             NOT NULL,
+    CONSTRAINT [PK_Table] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[OperationClaims] (
+    [Id]   INT           IDENTITY (1, 1) NOT NULL,
+    [Name] VARCHAR (250) NOT NULL,
+    CONSTRAINT [PK_OperationClaims] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+CREATE TABLE [dbo].[UserOperationClaims] (
+    [Id]               INT IDENTITY (1, 1) NOT NULL,
+    [UserId]           INT NOT NULL,
+    [OperationClaimId] INT NOT NULL,
+    CONSTRAINT [Pk_UOC] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+
+
+
+
+
 
