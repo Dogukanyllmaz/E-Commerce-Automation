@@ -11,6 +11,7 @@
 - [How To Use](#how-to-use)
 - [Screenshots](#screenshots)
 - [License](#license)
+- [SQLQuery](https://github.com/Dogukanyllmaz/E-Commerce-Automation/blob/main/Sql)
 - [Author Info](#author-info)
 
 ---
