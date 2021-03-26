@@ -9,6 +9,7 @@
 ### Table of Contents
 - [Description](#description)
 - [How To Use](#how-to-use)
+- [Screenshots](#screenshots)
 - [License](#license)
 - [Author Info](#author-info)
 
